@@ -1,12 +1,17 @@
 package com.example.addingmenu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button mButton;
@@ -34,9 +39,36 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    // inflating menu item to our main Activity
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.new_menu,menu);
 
+        return super.onCreateOptionsMenu(menu);
+    }
+    // select event handling
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        switch (id)
+        {
+            case R.id.item11:
+                Toast.makeText(getApplicationContext(), "SETTINGS SELECTED", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.item22:
+                Toast.makeText(getApplicationContext(), "LOCATION SELECTED", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.item33:
+                Toast.makeText(getApplicationContext(), "UPDATE SELECTED", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
