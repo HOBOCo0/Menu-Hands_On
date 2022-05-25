@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.item33:
                 Toast.makeText(getApplicationContext(), "UPDATE SELECTED", Toast.LENGTH_SHORT).show();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
